@@ -31,14 +31,6 @@ if todos_anos:
 else:
     ano = st.sidebar.slider('Ano',2020,2023)
 
-
-st.sidebar.markdown("<br>", unsafe_allow_html=True)
-st.sidebar.markdown("<br>", unsafe_allow_html=True)
-st.sidebar.markdown("<br>", unsafe_allow_html=True)
-st.sidebar.markdown("<div style='text-align: center;'><img src='https://static.wixstatic.com/media/cc8e7f_419c008271044d3a8c3726079edef05b~mv2.png/v1/fill/w_201,h_98,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo_cubo.png' alt='logo' width='201' height='98'></div>", unsafe_allow_html=True)
-st.sidebar.markdown("<div style='text-align: center;'><a href='https://www.a2ttechnology.com.br/' class='button'>Conheça nosso site</a></div>", unsafe_allow_html=True)
-
-
 query_string = {'regiao':regiao.lower(), 'ano':ano}
 
 response = requests.get(url, params=query_string)
@@ -54,6 +46,12 @@ dados['Data da Compra'] = pd.to_datetime(dados['Data da Compra'], format= '%d/%m
 filtros_vendedores = st.sidebar.multiselect('Vendedores', dados['Vendedor'].unique())
 if filtros_vendedores:
     dados = dados[dados['Vendedor'].isin(filtros_vendedores)]
+
+st.sidebar.markdown("<br>", unsafe_allow_html=True)
+st.sidebar.markdown("<br>", unsafe_allow_html=True)
+st.sidebar.markdown("<br>", unsafe_allow_html=True)
+st.sidebar.markdown("<div style='text-align: center;'><img src='https://static.wixstatic.com/media/cc8e7f_419c008271044d3a8c3726079edef05b~mv2.png/v1/fill/w_201,h_98,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo_cubo.png' alt='logo' width='201' height='98'></div>", unsafe_allow_html=True)
+st.sidebar.markdown("<div style='text-align: center;'><a href='https://www.a2ttechnology.com.br/' class='button'>Conheça nosso site</a></div>", unsafe_allow_html=True)
 
 
 ## Tables
